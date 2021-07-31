@@ -1,0 +1,70 @@
+html{
+    font-size:62.5%;
+}
+body{
+    background-color:rgba(0, 0, 0, 0.815);
+    color: whitesmoke;
+    font-family: 'Arvo', serif;
+}
+
+.container{
+    height:100vh;
+    width:30vw;
+    margin: 2rem auto;
+}
+h1{
+    font-size:4rem;
+    text-align: center;
+}
+input{
+    display:block;
+    margin: 2rem auto;
+    font-size:2rem;
+    width:100%;
+    box-sizing: border-box;
+    background-color:transparent;
+    padding-bottom:1rem;
+    border:none;
+    color:white;
+}
+
+input::placeholder{
+    color:white;
+}
+
+input:active, input:focus{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #EF0202;
+}
+
+button{
+    width:100%;
+    font-size:1.5rem;
+    line-height: 4rem;
+    outline:0;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    background-color:teal;
+    color:white;
+}
+
+.contact{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact h3 {
+    font-size:2rem;
+}
+
+.contact div{
+    font-size: 1.5rem;
+}
+
+.icon{
+    color:red;
+    cursor:pointer;
+}
