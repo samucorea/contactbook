@@ -11,6 +11,7 @@ body{
     height:100vh;
     width:40vw;
     margin: 2rem auto;
+    max-width: 100%;
 }
 h1{
     font-size:4rem;
@@ -75,3 +76,14 @@ input.inputEdit{
     margin: 1rem 0;
 }
 
+@media screen and (max-width:1024px){
+    .container{
+        width:70vw;
+    }
+}
+@media screen and (max-width:768px){
+    .container{
+        width:100vw;
+   
+    }
+}
