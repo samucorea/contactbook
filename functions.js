@@ -2,13 +2,13 @@ function insertContact(db, contact) {
 
     db.setItem(contact.key, JSON.stringify(contact))//we save the contact on db with a key since the localStorage works as a dictionary.
 
-    window.location.href = '/'//This is a shortcut for reseting input values. we force a redirect.
+    window.location.href = '/contactbook'//This is a shortcut for reseting input values. we force a redirect.
 
 }
 
 function deleteContact(db, contact) {
     db.removeItem(contact.key)//remove the item from the localStorage using the key.
-    window.location.href = '/'//Again, a shortcut for displaying the data without the deleted contact.
+    window.location.href = '/contactbook'//Again, a shortcut for displaying the data without the deleted contact.
 }
 
 function setTemporaryInputValues(db, contact) {
