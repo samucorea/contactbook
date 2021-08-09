@@ -1,9 +1,10 @@
 
-//Queries to get input values and insert button.
+//Queries to get input values, insert button and error message.
 const contactName = document.querySelector('#name')
 const phoneNumber = document.querySelector('#phone-number')
 const address = document.querySelector('#address')
 const insertBtn = document.querySelector('#insert-btn')
+const errorMessage = document.querySelector('.error-message')
 
 const contactList = document.querySelector('.contact-list')
 const db = window.localStorage
@@ -21,13 +22,6 @@ if (tempValues) {
     db.removeItem('tempValues')//remove the tmp values.
 }
 
-// //number validation for phone Number input. isNaN is a function to establish if a value is a Not A Number.
-// phoneNumber.addEventListener('keydown', e => {
-//     if (isNaN(e.target.value)) {
-//         e.target.value.splice(0, e.target.value.length - 2)
-//     }
-
-// })
 
 // Shortcut for inserting a contact with Enter key. To avoid repeating logic, simply click the insert button.
 document.addEventListener('keydown', e => {
@@ -38,8 +32,12 @@ document.addEventListener('keydown', e => {
 
 // Event  clicking insertBtn
 insertBtn.onclick = () => {
-    //If  any values are empty, do nothing.
-    if (contactName.value === '' || phoneNumber.value === '' || address.value === '') return;
+    //If  any values are empty, show the user an error message that tells them to complete any empty values.
+    if (contactName.value === '' || phoneNumber.value === '' || address.value === '') {
+        errorMessage.style.display = 'initial'
+
+        return;
+    }
     //We'll create a contact object with all the information to simplify the data processing.
     const contact = {
         key: Math.random(1, 100),//The key will be useful when entering the information on localStorage.

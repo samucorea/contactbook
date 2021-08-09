@@ -2,25 +2,19 @@ function insertContact(db, contact) {
 
     db.setItem(contact.key, JSON.stringify(contact))//we save the contact on db with a key since the localStorage works as a dictionary.
 
-    window.location.href = '/contactbook'//This is a shortcut for reseting input values. we force a redirect.
+    window.location.href = window.location.pathname//This is a shortcut for reseting input values. we force a redirect.
 
 }
 
 function deleteContact(db, contact) {
     db.removeItem(contact.key)//remove the item from the localStorage using the key.
-    window.location.href = '/contactbook'//Again, a shortcut for displaying the data without the deleted contact.
-}
-
-function setTemporaryInputValues(db, contact) {
-
-    db.setItem('tempValues', JSON.stringify(contact))
-
+    window.location.href = window.location.pathname//Again, a shortcut for displaying the data without the deleted contact.
 }
 
 
 function editContact(db, contact) {
     deleteContact(db, contact)// We delete the contact from the db.
-    setTemporaryInputValues(db, contact)// Then we set the temporary values for the inputs.
+    db.setItem('tempValues', JSON.stringify(contact))// We set the temporary values for the inputs.
 
 }
 function createContactNode(db, contact, parentNode) {
@@ -36,18 +30,16 @@ function createContactNode(db, contact, parentNode) {
 
     //add the different classes to the html elements.
     contactDiv.classList.add('contact')
-    deleteSpan.classList.add('material-icons', 'icon')
-    editSpan.classList.add('material-icons')
+    deleteSpan.classList.add('material-icons', 'icon', 'delete-button')
+    editSpan.classList.add('material-icons', 'icon', 'edit-button')
 
-    //add the text content for each element, that will contain the contact information, and two icons to delete and edit a specific contact.
+    //add the text content for each element that will contain the contact information, and two icons to delete and edit a specific contact.
     nameh3.textContent = contact.name
     phoneNumberDiv.textContent = contact.phoneNumber
     addressDiv.textContent = contact.address
     deleteSpan.textContent = 'delete'
     editSpan.textContent = 'edit'
 
-    //some styles to the edit icon.
-    editSpan.style.cursor = 'pointer'
 
     //add events to the delete and edit button, which will execute their respective function.
     deleteSpan.onclick = () => deleteContact(db, contact)

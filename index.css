@@ -66,14 +66,26 @@ button{
 }
 
 .icon{
-    color:red;
     cursor:pointer;
+}
+
+.delete-button{
+    color:red;
+}
+.edit-button{
+    color:white;
 }
 
 input.inputEdit{
     width:100%;
     width:-moz-fit-content;
     margin: 1rem 0;
+}
+
+.error-message{
+    color:red;
+    font-size:2rem;
+    display:none;
 }
 
 @media screen and (max-width:1024px){
