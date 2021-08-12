@@ -1,20 +1,24 @@
+
+function refreshPage() {
+    window.location.href = window.location.pathname//This is a shortcut for reseting input values. we force a redirect.
+}
 function insertContact(db, contact) {
 
     db.setItem(contact.key, JSON.stringify(contact))//we save the contact on db with a key since the localStorage works as a dictionary.
 
-    window.location.href = window.location.pathname//This is a shortcut for reseting input values. we force a redirect.
+    refreshPage()
 
 }
 
 function deleteContact(db, contact) {
     db.removeItem(contact.key)//remove the item from the localStorage using the key.
-    window.location.href = window.location.pathname//Again, a shortcut for displaying the data without the deleted contact.
+    refreshPage()//Again, a shortcut for displaying the data without the deleted contact.
 }
 
 
 function editContact(db, contact) {
-    deleteContact(db, contact)// We delete the contact from the db.
     db.setItem('tempValues', JSON.stringify(contact))// We set the temporary values for the inputs.
+    refreshPage()
 
 }
 function createContactNode(db, contact, parentNode) {

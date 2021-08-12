@@ -108,6 +108,15 @@ button{
    
 }
 
+.edit-menu button{
+    margin-top:2rem;
+}
+
+#cancel-btn{
+    background-color:tomato;
+}
+
+
 .overlay{
     position: absolute;
     top: 0;
@@ -116,7 +125,7 @@ button{
     height: 100%;
     z-index: 10;
     display: none;
-    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    background-color: rgba(0,0,0,0.5);
   }
 
 @media screen and (max-width:1024px){
@@ -128,5 +137,9 @@ button{
     .container{
         width:100vw;
    
+    }
+
+    .edit-menu{
+        width:100%;
     }
 }

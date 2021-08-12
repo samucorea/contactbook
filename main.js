@@ -9,6 +9,7 @@ const editContactName = document.querySelector('#edit-name')
 const editPhoneNumber = document.querySelector('#edit-phone-number')
 const editAddress = document.querySelector('#edit-address')
 const editBtn = document.querySelector('#edit-btn')
+const cancelBtn = document.querySelector('#cancel-btn')
 
 const insertBtn = document.querySelector('#insert-btn')
 const errorMessage = document.querySelector('.error-message')
@@ -38,8 +39,14 @@ if (tempValues) {
 
         insertContact(db, editedContact)
         overlay.style.display = 'none'
-        db.removeItem('tempValues')
+
     }
+
+    cancelBtn.onclick = () => {
+        overlay.style.display = 'none'
+    }
+
+    db.removeItem('tempValues')
 
 }
 
