@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <h1>Contact Book</h1>
         <div class="input-form">
@@ -22,13 +23,25 @@
             <input id="phone-number" maxlength="10" placeholder="Phone Number">
             <input id="address" type="text" placeholder="Address">
             <button id="insert-btn">Insertar contacto</button>
+            <p class="error-message">Please, fill all the values to insert a contact.</p>
         </div>
         <div class="contact-list">
+        </div>
+
+    </div>
+    <div class="overlay">
+        <div class="edit-menu">
+            <input id="edit-name" placeholder="New name">
+            <input id="edit-phone-number" maxlength="10" placeholder="New phonenumber">
+            <input id="edit-address" placeholder="New address">
+            <button id="edit-btn">Edit Contact</button>
+            <button id="cancel-btn">Cancel</button>
         </div>
     </div>
 
     <script src="functions.js"></script>
     <script src="main.js"></script>
+
 </body>
 
 </html>
