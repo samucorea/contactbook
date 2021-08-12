@@ -1,11 +1,11 @@
-
+'use strict';
 //Queries to get input values, insert button and error message.
 const contactName = document.querySelector('#name')
 const phoneNumber = document.querySelector('#phone-number')
 const address = document.querySelector('#address')
 
 const overlay = document.querySelector('.overlay')
-const editContactName = document.querySelector('#edit-name')
+const editName = document.querySelector('#edit-name')
 const editPhoneNumber = document.querySelector('#edit-phone-number')
 const editAddress = document.querySelector('#edit-address')
 const editBtn = document.querySelector('#edit-btn')
@@ -25,17 +25,12 @@ const tempValues = JSON.parse(db.getItem('tempValues'))
 //to the input elements, so the user can edit them and re-insert them.
 if (tempValues) {
     overlay.style.display = 'initial'
-    editContactName.value = tempValues.name
+    editName.value = tempValues.name
     editPhoneNumber.value = tempValues.phoneNumber
     editAddress.value = tempValues.address
 
     editBtn.onclick = () => {
-        const editedContact = {
-            key: tempValues.key,
-            name: editContactName.value,
-            phoneNumber: editPhoneNumber.value,
-            address: editAddress.value
-        }
+        const editedContact = new Contact(tempValues.key, editName.value, editPhoneNumber.value, editAddress.value);
 
         insertContact(db, editedContact)
         overlay.style.display = 'none'
@@ -75,13 +70,7 @@ insertBtn.onclick = () => {
         return;
     }
     //We'll create a contact object with all the information to simplify the data processing.
-    const contact = {
-        key: Math.random(1, 100),//The key will be useful when entering the information on localStorage.
-        name: contactName.value,
-        phoneNumber: phoneNumber.value,
-        address: address.value,
-    }
-
+    const contact = new Contact(Math.random(1, 100), contactName.value, phoneNumber.value, address.value)
 
     insertContact(db, contact)//We insert the contact to the local storage or db.
 }

@@ -1,4 +1,4 @@
-
+'use strict';
 function refreshPage() {
     window.location.href = window.location.pathname//This is a shortcut for reseting input values. we force a redirect.
 }
