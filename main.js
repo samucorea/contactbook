@@ -30,7 +30,7 @@ if (tempValues) {
     editAddress.value = tempValues.address
 
     editBtn.onclick = () => {
-        const editedContact = new Contact(tempValues.key, editName.value, editPhoneNumber.value, editAddress.value);
+        const editedContact = new Contact(editName.value, editPhoneNumber.value, editAddress.value, tempValues.key);
 
         insertContact(db, editedContact)
         overlay.style.display = 'none'
@@ -70,7 +70,9 @@ insertBtn.onclick = () => {
         return;
     }
     //We'll create a contact object with all the information to simplify the data processing.
-    const contact = new Contact(Math.random(1, 100), contactName.value, phoneNumber.value, address.value)
+    const contact = new Contact(contactName.value, phoneNumber.value, address.value)
+    console.log(contact)
+
 
     insertContact(db, contact)//We insert the contact to the local storage or db.
 }
